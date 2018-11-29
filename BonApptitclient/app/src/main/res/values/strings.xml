@@ -1,5 +1,9 @@
 <resources>
     <string name="app_name">Bon Appétit</string>
-    <string name="store_name">Restaurant Name</string>
+    <string name="name">Name</string>
     <string name="table_no">Number</string>
+    <string name="breakfast_text">Breakfast</string>
+    <string name="lunch_text">Lunch</string>
+    <string name="dinner_text">Dinner</string>
+    <string name="back_text">Back</string>
 </resources>
