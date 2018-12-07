@@ -2,10 +2,10 @@ package com.example.abhilash.bonapptit;
 
 public class Customer {
     String customerName;
-    int tableNo;
+    String tableNo;
     float totalPrice;
 
-    public Customer(String customerName,int tableNo){
+    public Customer(String customerName,String tableNo){
         this.customerName=customerName;
         this.tableNo=tableNo;
     }
@@ -15,9 +15,9 @@ public class Customer {
 
     }
 
-    public int getTableNo() { return tableNo; }
+    public String getTableNo() { return tableNo; }
 
-    public void setTableNo(int tableNo) { this.tableNo = tableNo; }
+    public void setTableNo(String tableNo) { this.tableNo = tableNo; }
 
     public float getTotalPrice() { return totalPrice; }
 

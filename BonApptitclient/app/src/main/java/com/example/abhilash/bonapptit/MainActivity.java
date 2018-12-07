@@ -4,13 +4,15 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 
-import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
     private String name;
-    private int tableNo;
+    private String tableNo;
     private Customer customers;
     boolean mainActivity;
 
@@ -18,19 +20,29 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        getInputandStore();
-        if (mainActivity){
-            Intent intent=new Intent(MainActivity.this,SecondActivity.class);
-            startActivity(intent);
+        Button button=findViewById(R.id.submitbtn);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getInputandStore();
+                if (mainActivity){
+                    Intent intent=new Intent(MainActivity.this,SecondActivity.class);
+                    startActivity(intent);
+                }
+            }
+        } );
+
+
+    }
+
+    public void getInputandStore() {
+        this.name = findViewById(R.id.etname).toString();
+        String n = findViewById(R.id.ettnum).toString();
+        Log.d("String value n","Value = "+n);
+        customers = new Customer(name, tableNo);
+        if ((!name.isEmpty()) && (!n.isEmpty())) {
+            mainActivity = true;
         }
-
     }
-
-    public void getInputandStore(){
-        this.name=findViewById(R.id.etname).toString();
-        this.tableNo=findViewById(R.id.ettnum);
-        customers= new Customer(name,tableNo);
-    }
-
 
 }
