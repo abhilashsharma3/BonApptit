@@ -6,4 +6,7 @@
     <string name="lunch_text">Lunch</string>
     <string name="dinner_text">Dinner</string>
     <string name="back_text">Back</string>
+    <string name="createorder">Create your order</string>
+    <string name="etname">Enter Your Name</string>
+    <string name="ettnum">Enter Your Table Number</string>
 </resources>
