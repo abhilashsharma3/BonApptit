@@ -13,7 +13,7 @@ public class MainActivity extends AppCompatActivity {
 
     private String name;
     private String tableNo;
-    private Customer customers;
+    public Customer customers;
     boolean mainActivity;
 
     @Override
@@ -26,8 +26,12 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 getInputandStore();
                 if (mainActivity){
+                    Bundle bundle=new Bundle();
+                    bundle.putString("name",name);
+                    bundle.putString("tableNo",tableNo);
                     Intent intent=new Intent(MainActivity.this,SecondActivity.class);
                     startActivity(intent);
+
                 }
             }
         } );

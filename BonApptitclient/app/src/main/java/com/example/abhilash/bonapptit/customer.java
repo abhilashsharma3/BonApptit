@@ -5,6 +5,10 @@ public class Customer {
     String tableNo;
     float totalPrice;
 
+    public Customer(){
+
+    }
+
     public Customer(String customerName,String tableNo){
         this.customerName=customerName;
         this.tableNo=tableNo;
