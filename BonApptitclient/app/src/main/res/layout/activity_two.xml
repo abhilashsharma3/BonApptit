@@ -8,50 +8,69 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_margin="10dp"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp">
 
         <Button
             android:id="@+id/breakfast_button"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/pacifico_regular"
-            android:paddingBottom="30dp"
-            android:paddingTop="30dp"
-            android:text="@string/breakfast_text"
-            android:textAlignment="center"
-            android:textSize="20sp" />
+            android:layout_height="100dp"
+            android:layout_margin="5dp"
+            android:background="@drawable/button_background"
+            android:fontFamily="@font/arvo_italic"
+            android:shadowColor="#DC143C"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:shadowRadius="10"
+            android:text="Break Fast"
+            android:textColor="#DC143C"
+            android:textSize="30sp" />
 
         <Button
             android:id="@+id/lunch_button"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/pacifico_regular"
-            android:paddingBottom="30dp"
-            android:paddingTop="30dp"
-            android:text="@string/lunch_text"
-            android:textAlignment="center"
-            android:textSize="20sp" />
+            android:layout_height="100dp"
+            android:layout_margin="5dp"
+            android:background="@drawable/button_background"
+            android:fontFamily="@font/arvo_italic"
+            android:shadowColor="#3F51B5"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:shadowRadius="10"
+            android:text="Lunch"
+            android:textColor="#DC143C"
+            android:textSize="30sp" />
 
         <Button
             android:id="@+id/dinner_button"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/pacifico_regular"
-            android:paddingBottom="30dp"
-            android:paddingTop="30dp"
-            android:text="@string/dinner_text"
-            android:textAlignment="center"
-            android:textSize="20sp" />
+            android:layout_height="100dp"
+            android:layout_margin="5dp"
+            android:background="@drawable/button_background"
+            android:fontFamily="@font/arvo_italic"
+            android:shadowColor="#3F51B5"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:shadowRadius="10"
+            android:text="Dinner"
+            android:textColor="#DC143C"
+            android:textSize="30sp" />
 
         <Button
             android:id="@+id/back_button"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/alfa_slab_one"
-            android:paddingBottom="30dp"
-            android:paddingTop="30dp"
-            android:text="@string/back_text"
-            android:textAlignment="center"
-            android:textSize="20sp" />
+            android:layout_height="200dp"
+            android:layout_margin="5dp"
+            android:background="@drawable/button_background"
+            android:fontFamily="@font/pacifico_regular"
+            android:shadowColor="#3F51B5"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:shadowRadius="10"
+            android:text="BACk"
+            android:textColor="#DC143C"
+            android:textSize="30sp" />
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>
