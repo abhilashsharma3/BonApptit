@@ -33,8 +33,8 @@ public class ThirdActivity extends AppCompatActivity {
         recyclerViewAdapter=new RecyclerViewAdapter(this,menuItems);
 
         // TODO change ID value for button if it is different, then remove comment syntax
-        // orderBtn = findViewById(R.id.orderButton);
-        orderBtn.setOnClickListener(new View.OnClickListener() {
+        //orderBtn = findViewById(R.id.orderButton);
+        /*orderBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String jsonString = "{\"Order\": [\"";
@@ -60,11 +60,12 @@ public class ThirdActivity extends AppCompatActivity {
                 // TODO implement FourthActivity Intent newIntent = new Intent(ThirdActivity.this, FourthActivity.class);
                 // startActivity(newIntent);
             }
-        });
+        });*/
 
     }
 
     private void defineMenu() {
+        menuItems = new ArrayList<MenuItem>();
         switch (menutype){
             case Keys.MENU_BREAKFAST:
                 menuItems.add(new MenuItem("Blueberry buttermilk pancakes",

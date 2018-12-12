@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
                     bundle.putString("name",name);
                     bundle.putString("tableNo",tableNo);
                     Intent intent=new Intent(MainActivity.this,SecondActivity.class);
+                    intent.putExtra("bundle", bundle);
                     startActivity(intent);
 
                 }
