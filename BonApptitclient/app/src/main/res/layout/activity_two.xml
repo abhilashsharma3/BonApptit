@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -8,69 +9,32 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="10dp"
-        android:orientation="vertical"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp">
+        android:orientation="vertical">
 
-        <Button
+        <ImageButton
             android:id="@+id/breakfast_button"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="181dp"
             android:layout_margin="5dp"
             android:background="@drawable/button_background"
-            android:fontFamily="@font/arvo_italic"
-            android:shadowColor="#DC143C"
-            android:shadowDx="0"
-            android:shadowDy="0"
-            android:shadowRadius="10"
-            android:text="Break Fast"
-            android:textColor="#DC143C"
-            android:textSize="30sp" />
+            app:srcCompat="@drawable/rsz_bf2" />
 
-        <Button
+        <ImageButton
             android:id="@+id/lunch_button"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="169dp"
             android:layout_margin="5dp"
             android:background="@drawable/button_background"
-            android:fontFamily="@font/arvo_italic"
-            android:shadowColor="#3F51B5"
-            android:shadowDx="0"
-            android:shadowDy="0"
-            android:shadowRadius="10"
-            android:text="Lunch"
-            android:textColor="#DC143C"
-            android:textSize="30sp" />
+            app:srcCompat="@drawable/lunch1" />
 
-        <Button
+        <ImageButton
             android:id="@+id/dinner_button"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="171dp"
             android:layout_margin="5dp"
             android:background="@drawable/button_background"
-            android:fontFamily="@font/arvo_italic"
-            android:shadowColor="#3F51B5"
-            android:shadowDx="0"
-            android:shadowDy="0"
-            android:shadowRadius="10"
-            android:text="Dinner"
-            android:textColor="#DC143C"
-            android:textSize="30sp" />
+            app:srcCompat="@drawable/dinner1" />
 
-        <Button
-            android:id="@+id/back_button"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:layout_margin="5dp"
-            android:background="@drawable/button_background"
-            android:fontFamily="@font/pacifico_regular"
-            android:shadowColor="#3F51B5"
-            android:shadowDx="0"
-            android:shadowDy="0"
-            android:shadowRadius="10"
-            android:text="BACk"
-            android:textColor="#DC143C"
-            android:textSize="30sp" />
     </LinearLayout>
+
 </android.support.constraint.ConstraintLayout>
