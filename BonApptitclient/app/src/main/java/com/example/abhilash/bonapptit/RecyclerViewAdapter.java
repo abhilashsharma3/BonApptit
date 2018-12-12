@@ -41,12 +41,14 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             @Override
             public void onClick(View v) {
                 recyclerViewHolder.decrement();
+                notifyDataSetChanged();
             }
         });
         recyclerViewHolder.decButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 recyclerViewHolder.increment();
+                notifyDataSetChanged();
             }
         });
 //        Picasso.with(context).load()
