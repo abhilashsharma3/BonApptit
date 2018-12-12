@@ -28,7 +28,7 @@ public class SecondActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                // TODO implement this: newIntent = new Intent(SecondActivity.this, ThirdActivity.class);
+                newIntent = new Intent(SecondActivity.this, ThirdActivity.class);
                 bundle.putInt("menuType", Keys.MENU_BREAKFAST);
                 newIntent.putExtra("bundle", bundle);
                 startActivity(newIntent);
@@ -39,7 +39,7 @@ public class SecondActivity extends AppCompatActivity {
         lunch_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // TODO implement this: newIntent = new Intent(SecondActivity.this, ThirdActivity.class);
+                newIntent = new Intent(SecondActivity.this, ThirdActivity.class);
                 bundle.putInt("menuType", Keys.MENU_LUNCH);
                 newIntent.putExtra("bundle", bundle);
                 startActivity(newIntent);
@@ -50,7 +50,7 @@ public class SecondActivity extends AppCompatActivity {
         dinner_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // TODO implement this: newIntent = new Intent(SecondActivity.this, ThirdActivity.class);
+                newIntent = new Intent(SecondActivity.this, ThirdActivity.class);
                 bundle.putInt("menuType", Keys.MENU_DINNER);
                 newIntent.putExtra("bundle", bundle);
                 startActivity(newIntent);

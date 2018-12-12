@@ -1,11 +1,23 @@
 package com.example.abhilash.bonapptit;
 
+
 public class MenuItem {
     private String name;
     private float price;
     private int menuItemType;
     private int quantity;
     private String desc;
+    private String img;
+
+
+    public MenuItem(String name, float price, int menuItemType, String desc, String img) {
+        this.name = name;
+        this.price = price;
+        this.menuItemType = menuItemType;
+        this.quantity = 0;
+        this.desc = desc;
+        this.img = img;
+    }
 
     public String getDesc() {
         return desc;
@@ -46,4 +58,8 @@ public class MenuItem {
     public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
+
+    public String getImg() { return img; }
+
+    public void setImg(String img) { this.img = img; }
 }
