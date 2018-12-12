@@ -14,22 +14,23 @@ public class Client extends AsyncTask<Void,Void,Void> {
     int port;
     String order;
 
-    Client(String destAddress,int port,String order){
-        this.destAddress=destAddress;
-        this.order=order;
-        this.port=port;
+    Client(String destAddress, int port, String order) {
+        this.destAddress = destAddress;
+        this.order = order;
+        this.port = port;
     }
+
     @Override
     protected Void doInBackground(Void... voids) {
-        Socket socket=null;
-        try{
-            socket=new Socket(destAddress,port);
-            
-        } catch (UnknownHostException e){
+        Socket socket = null;
+        try {
+            socket = new Socket(destAddress, port);
+
+        } catch (UnknownHostException e) {
             e.printStackTrace();
-        } catch (IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
         }
-
+        return null;
     }
 }
