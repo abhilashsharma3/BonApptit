@@ -33,7 +33,7 @@ public class ThirdActivity extends AppCompatActivity {
         recyclerViewAdapter=new RecyclerViewAdapter(this,menuItems);
 
         // TODO change ID value for button if it is different, then remove comment syntax
-        // orderBtn = findViewById(R.id.orderButton);
+        orderBtn = findViewById(R.id.co_button);
         orderBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -55,10 +55,10 @@ public class ThirdActivity extends AppCompatActivity {
                 jsonString += ", \"Price\": \"" + price + "\"}";
                 Log.d(null, "jsonString: " + jsonString);
 
-                // Client client = new Client(jsonString);
-
-                // TODO implement FourthActivity Intent newIntent = new Intent(ThirdActivity.this, FourthActivity.class);
-                // startActivity(newIntent);
+                 Client client = new Client(jsonString);
+                 client.execute();
+                Intent newIntent = new Intent(ThirdActivity.this, FourthActivity.class);
+                startActivity(newIntent);
             }
         });
 

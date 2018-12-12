@@ -16,10 +16,8 @@ public class Client extends AsyncTask<String,Void,Void> {
     int port;
     String order;
 
-    Client(String destAddress, int port, String order) {
-        this.destAddress = destAddress;
+    Client(String order) {
         this.order = order;
-        this.port = port;
     }
 
 

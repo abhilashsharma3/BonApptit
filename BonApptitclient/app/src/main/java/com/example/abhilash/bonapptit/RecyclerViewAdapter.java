@@ -74,7 +74,9 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             imageView=view.findViewById(R.id.imageView);
             foodName=view.findViewById(R.id.foodname);
             foodDesc= view.findViewById(R.id.fooddesc);
-            foodQty=view.findViewById(R.id.foodqty);
+            foodQty=view.findViewById(R.id.qty);
+            incButton=view.findViewById(R.id.increment_button);
+            decButton=view.findViewById(R.id.decreme_button);
             //TODO add button for increasing menu item quantity
             // incButton=view.findViewById(R.id.incrementButton);
             //TODO add button for decreasing menu item quantity

@@ -39,17 +39,6 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:textStyle="italic" />
-            <Button
-                android:id="@+id/co_button"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="10dp"
-                android:gravity="center"
-                android:outlineAmbientShadowColor="?android:attr/colorForeground"
-                android:padding="5dp"
-                android:textStyle="bold"
-                android:layout_below="@+id/qty"
-                android:text="@string/submitorder" />
         </LinearLayout>
 
 
