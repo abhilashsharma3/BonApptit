@@ -25,6 +25,9 @@ public class ThirdActivity extends AppCompatActivity {
         defineMenu();
         recyclerView=findViewById(R.id.recyclerview);
         recyclerViewAdapter=new RecyclerViewAdapter(this,menuItem);
+
+
+
     }
 
     private void defineMenu() {
