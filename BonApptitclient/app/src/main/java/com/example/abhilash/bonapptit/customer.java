@@ -1,6 +1,6 @@
 package com.example.abhilash.bonapptit;
 
-public class Customer {
+class Customer {
     String customerName;
     String tableNo;
     float totalPrice;

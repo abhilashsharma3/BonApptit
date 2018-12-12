@@ -9,4 +9,5 @@
     <string name="createorder">Create your order</string>
     <string name="etname">Enter Your Name</string>
     <string name="ettnum">Enter Your Table Number</string>
+    <string name="submitorder">Submit Your Order</string>
 </resources>
