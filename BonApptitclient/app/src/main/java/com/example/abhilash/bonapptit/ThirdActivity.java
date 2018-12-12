@@ -40,14 +40,17 @@ public class ThirdActivity extends AppCompatActivity {
                 String jsonString = "{\"Order\": [\"";
                 float price = 0.00f;
                 for(int i = 0; i < menuItems.size(); i++) {
-                    if(menuItems.get(i).getQuantity() != 0) {
+                    if (menuItems.get(i).getQuantity() != 0) {
                         price += menuItems.get(i).getPrice() * menuItems.get(i).getQuantity();
-                        if(i != menuItems.size() - 1) {
+                        if (i != menuItems.size() - 1) {
                             jsonString += menuItems.get(i).getQuantity() + " " + menuItems.get(i).getName() + "\", \"";
-                        }else {
+                        } else {
                             jsonString += menuItems.get(i).getQuantity() + " " + menuItems.get(i).getName() + "\"]";
                         }
                     }
+                }
+                if(menuItems.get(menuItems.size() - 1).getQuantity() == 0) {
+                    jsonString = jsonString.substring(0, jsonString.length() - 4) + "]";
                 }
                 jsonString += ", \"Price\": \"" + price + "\"}";
                 Log.d(null, "jsonString: " + jsonString);
