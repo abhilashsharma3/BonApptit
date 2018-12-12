@@ -32,7 +32,6 @@ public class ThirdActivity extends AppCompatActivity {
         recyclerView=findViewById(R.id.recyclerview);
         recyclerViewAdapter=new RecyclerViewAdapter(this,menuItems);
 
-        // TODO change ID value for button if it is different, then remove comment syntax
         orderBtn = findViewById(R.id.co_button);
         orderBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,8 +54,8 @@ public class ThirdActivity extends AppCompatActivity {
                 jsonString += ", \"Price\": \"" + price + "\"}";
                 Log.d(null, "jsonString: " + jsonString);
 
-                 Client client = new Client(jsonString);
-                 client.execute();
+                Client client = new Client(jsonString);
+                client.execute();
                 Intent newIntent = new Intent(ThirdActivity.this, FourthActivity.class);
                 startActivity(newIntent);
             }
@@ -65,6 +64,7 @@ public class ThirdActivity extends AppCompatActivity {
     }
 
     private void defineMenu() {
+        menuItems = new ArrayList<MenuItem>();
         switch (menutype){
             case Keys.MENU_BREAKFAST:
                 menuItems.add(new MenuItem("Blueberry buttermilk pancakes",
