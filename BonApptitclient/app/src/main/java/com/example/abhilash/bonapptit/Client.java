@@ -30,7 +30,6 @@ public class Client extends AsyncTask<String,Void,Void>{
                     PrintStream printStream=new PrintStream(outputStream);
                     printStream.print(order);
                     socket.close();
-
                 } catch (UnknownHostException e){
                     e.printStackTrace();
                 } catch (IOException e){
