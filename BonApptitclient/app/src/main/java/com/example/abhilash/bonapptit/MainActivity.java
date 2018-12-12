@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 getInputandStore();
-                if (mainActivity){
+                if (!mainActivity){
                     Bundle bundle=new Bundle();
                     bundle.putString("name",name);
                     bundle.putString("tableNo",tableNo);
