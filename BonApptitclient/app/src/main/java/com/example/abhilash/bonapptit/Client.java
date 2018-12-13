@@ -17,6 +17,8 @@ public class Client extends AsyncTask<String,Void,Void> {
     String order;
 
     Client(String order) {
+        destAddress="192.168.1.15";
+        port=456;
         this.order = order;
     }
 

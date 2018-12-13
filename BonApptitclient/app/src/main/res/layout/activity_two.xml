@@ -1,40 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:layout_margin="10dp"
+    android:orientation="vertical">
 
-    <LinearLayout
+    <ImageButton
+        android:id="@+id/breakfast_button"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="#00000000"
+        app:srcCompat="@drawable/breakfast_final" />
 
-        <ImageButton
-            android:id="@+id/breakfast_button"
-            android:layout_width="match_parent"
-            android:layout_height="181dp"
-            android:layout_margin="5dp"
-            android:background="@drawable/button_background"
-            app:srcCompat="@drawable/rsz_bf2" />
+    <ImageButton
+        android:id="@+id/lunch_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="#00000000"
+        app:srcCompat="@drawable/lunch_final" />
 
-        <ImageButton
-            android:id="@+id/lunch_button"
-            android:layout_width="match_parent"
-            android:layout_height="169dp"
-            android:layout_margin="5dp"
-            android:background="@drawable/button_background"
-            app:srcCompat="@drawable/lunch1" />
+    <ImageButton
+        android:id="@+id/dinner_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="#00000000"
+        app:srcCompat="@drawable/dinner_final" />
 
-        <ImageButton
-            android:id="@+id/dinner_button"
-            android:layout_width="match_parent"
-            android:layout_height="171dp"
-            android:layout_margin="5dp"
-            android:background="@drawable/button_background"
-            app:srcCompat="@drawable/dinner1" />
+    <!--<ScrollView-->
+    <!--android:id="@+id/ScrollViewID"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent">-->
 
-    </LinearLayout>
+    <!--<Button-->
+    <!--android:id="@+id/back_button"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_margin="0dp"-->
+    <!--android:gravity="center"-->
+    <!--android:text="Back"-->
+    <!--android:textSize="32sp"-->
+    <!--android:textStyle="bold" />-->
+    <!--</ScrollView>-->
 
-</android.support.constraint.ConstraintLayout>
+</LinearLayout>

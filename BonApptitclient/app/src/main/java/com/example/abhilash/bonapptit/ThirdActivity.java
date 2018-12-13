@@ -3,6 +3,7 @@ package com.example.abhilash.bonapptit;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
@@ -13,26 +14,31 @@ import android.widget.Switch;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 
-public class ThirdActivity extends AppCompatActivity {
+public class ThirdActivity extends AppCompatActivity implements View.OnClickListener {
 
     ImageView imageView;
     RecyclerView recyclerView;
     RecyclerViewAdapter recyclerViewAdapter;
-    ArrayList<MenuItem> menuItems;
+    ArrayList<MenuItem> menuItems=new ArrayList<>();
     int menutype;
     Button orderBtn;
 
     @Override
     protected void onCreate(Bundle savedInstance) {
         super.onCreate(savedInstance);
-        Bundle bundle=getIntent().getBundleExtra("bundle");
+        final Bundle bundle=getIntent().getBundleExtra("bundle");
         menutype=bundle.getInt("menuType");
-        setContentView(R.layout.activity_three);
+        setContentView(R.layout.recycler);
         defineMenu();
         recyclerView=findViewById(R.id.recyclerview);
         recyclerViewAdapter=new RecyclerViewAdapter(this,menuItems);
-
+        Log.d("Menu items size"," Size = "+menuItems.size());
+        recyclerView.setAdapter(recyclerViewAdapter);
+        recyclerView.setLayoutManager( new LinearLayoutManager(this));
+       // recyclerViewAdapter.menuItems.addAll(menuItems);
+      //  recyclerViewAdapter.notifyDataSetChanged();
         orderBtn = findViewById(R.id.co_button);
+
         orderBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -53,9 +59,8 @@ public class ThirdActivity extends AppCompatActivity {
                 }
                 jsonString += ", \"Price\": \"" + price + "\"}";
                 Log.d(null, "jsonString: " + jsonString);
-
-                Client client = new Client(jsonString);
-                client.execute();
+                bundle.putString("jsonString",jsonString);
+                bundle.putString("Price",Float.toString(price));
                 Intent newIntent = new Intent(ThirdActivity.this, FourthActivity.class);
                 startActivity(newIntent);
             }
@@ -64,9 +69,9 @@ public class ThirdActivity extends AppCompatActivity {
     }
 
     private void defineMenu() {
-        menuItems = new ArrayList<MenuItem>();
         switch (menutype){
             case Keys.MENU_BREAKFAST:
+                Log.d("BreakFast" , " Switch ");
                 menuItems.add(new MenuItem("Blueberry buttermilk pancakes",
                         5.99f,
                         Keys.MENU_BREAKFAST,
@@ -90,10 +95,11 @@ public class ThirdActivity extends AppCompatActivity {
                 menuItems.add(new MenuItem("Biscuits 'N Gravy Pie",
                         9.99f,
                         Keys.MENU_BREAKFAST,
-                        "Biscuits and gravy is a popular breakfast dish in the United States especially in the South.[1] The dish consists of soft dough biscuits covered in either sawmill or meat gravy made from the drippings of cooked pork sausage white flour milk and often (but not always) bits of sausage bacon ground beef or other meat",
+                        "Biscuits and gravy is a popular breakfast dish in the United States especially in the South. The dish consists of soft dough biscuits covered in either sawmill or meat gravy made from the drippings of cooked pork sausage white flour milk and often bits of sausage bacon ground beef or other meat",
                         "drawable-v24/biscuits_gravy_pie.png"));
                 break;
             case Keys.MENU_LUNCH:
+                Log.d("Lunch" , " Switch ");
                 menuItems.add(new MenuItem("Chicken Salad",
                         5.99f,
                         Keys.MENU_LUNCH,
@@ -121,7 +127,7 @@ public class ThirdActivity extends AppCompatActivity {
                         "drawable/chicken_and_waffles.png"));
                 break;
             case Keys.MENU_DINNER:
-
+                Log.d("Dinner" , " Switch ");
                 menuItems.add(new MenuItem("Smoked Salmon Pasta",
                         8.99f,
                         Keys.MENU_DINNER,
@@ -147,6 +153,15 @@ public class ThirdActivity extends AppCompatActivity {
                         Keys.MENU_DINNER,
                         "A mix of Mexican-inspired ingredients such as black beans, corn, and avocado, along with hearty whole wheat pasta and a light and creamy Greek yogurt paprika dressing, this Southwestern pasta salad boasts simple prep and complex flavor, with wide crowd appeal.",
                         "drawable/southwestern_pasta_salad.png"));
+                break;
+        }
+    }
+
+    @Override
+    public void onClick(View v) {
+        int click=v.getId();
+        if(click==R.id.co_button){
+
         }
     }
 }

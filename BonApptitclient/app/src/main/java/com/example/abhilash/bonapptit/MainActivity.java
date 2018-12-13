@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 getInputandStore();
-                if (!mainActivity){
+              //  if (mainActivity){
                     Bundle bundle=new Bundle();
                     bundle.putString("name",name);
                     bundle.putString("tableNo",tableNo);
@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
                     intent.putExtra("bundle", bundle);
                     startActivity(intent);
 
-                }
+              //  }
             }
         } );
 
@@ -45,9 +45,9 @@ public class MainActivity extends AppCompatActivity {
         String n = findViewById(R.id.ettnum).toString();
         Log.d("String value n","Value = "+n);
         customers = new Customer(name, tableNo);
-        if ((!name.isEmpty()) && (!n.isEmpty())) {
-            mainActivity = true;
-        }
+//        if ((!name.isEmpty()) && (!n.isEmpty())) {
+//            mainActivity = true;
+//        }
     }
 
 }

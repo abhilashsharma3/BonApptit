@@ -1,6 +1,8 @@
 package com.example.abhilash.bonapptit;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.Icon;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -9,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import java.util.ArrayList;
 
@@ -21,8 +24,9 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         this.menuItems=menuItems;
     }
 
+    @NonNull
     @Override
-    public RecyclerViewAdapter.RecyclerViewHolder onCreateViewHolder(ViewGroup parent, int viewType){
+    public RecyclerViewAdapter.RecyclerViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType){
        Context context=parent.getContext();
         LayoutInflater layoutInflater=LayoutInflater.from(context);
         boolean atp=false;
@@ -33,27 +37,41 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     @Override
     public void onBindViewHolder(@NonNull final RecyclerViewHolder recyclerViewHolder, int i) {
-        MenuItem menuItem=menuItems.get(i);
-        recyclerViewHolder.foodQty.setText(menuItem.getQuantity());
+        final MenuItem menuItem=menuItems.get(i);
+        final int[] abc = {menuItem.getQuantity()};
+        //Food Quantity
+        String ab=Integer.toString(abc[0]);
+       recyclerViewHolder.foodQty.setText(ab);
+
         recyclerViewHolder.foodName.setText(menuItem.getName());
         recyclerViewHolder.foodDesc.setText(menuItem.getDesc());
+     //   final float foodPrice={menuItem.getPrice()};
+        recyclerViewHolder.foodPrice.setText(Float.toString(menuItem.getPrice()));
+       // Drawable drawable=new D
+   //     recyclerViewHolder.imageView.setImageDrawable();
         recyclerViewHolder.incButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                recyclerViewHolder.decrement();
+                ++abc[0];
+                menuItem.setQuantity(abc[0]);
+                String ab=Integer.toString(menuItem.getQuantity());
+                recyclerViewHolder.foodQty.setText(ab);
                 notifyDataSetChanged();
             }
         });
         recyclerViewHolder.decButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                recyclerViewHolder.increment();
-                notifyDataSetChanged();
+                if(abc[0]!=0){
+                    --abc[0];
+                    menuItem.setQuantity(abc[0]);
+                    String ab=Integer.toString(menuItem.getQuantity());
+                    recyclerViewHolder.foodQty.setText(ab);
+                    notifyDataSetChanged();
+                    notifyDataSetChanged();
+                }
             }
         });
-//        Picasso.with(context).load()
-//                .resize(360,210)
-//                .into(holder.imageView);
     }
 
     @Override
@@ -61,36 +79,47 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         return menuItems.size();
     }
 
-    public class RecyclerViewHolder extends RecyclerView.ViewHolder {
+    public class RecyclerViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         ImageView imageView;
         TextView foodDesc;
         TextView foodName;
-        EditText foodQty;
+        TextView foodQty;
         Button incButton;
+        RelativeLayout relativeLayout;
+        TextView foodPrice;
         Button decButton;
+        Button submit;
 
         public RecyclerViewHolder(View view) {
             super(view);
+            relativeLayout=view.findViewById(R.id.relativeLayout);
             imageView=view.findViewById(R.id.imageView);
             foodName=view.findViewById(R.id.foodname);
+            foodPrice=view.findViewById(R.id.foodPrice);
             foodDesc= view.findViewById(R.id.fooddesc);
-            foodQty=view.findViewById(R.id.qty);
+            foodQty=view.findViewById(R.id.foodQty);
             incButton=view.findViewById(R.id.increment_button);
-            decButton=view.findViewById(R.id.decreme_button);
-
-            incButton=view.findViewById(R.id.increment_button);
-
             decButton=view.findViewById(R.id.decrement_button);
+            incButton=view.findViewById(R.id.increment_button);
+            decButton=view.findViewById(R.id.decrement_button);
+
+            view.setOnClickListener(this);
         }
 
-        public void decrement() {
-            int quantity = Integer.parseInt(foodQty.getText().toString());
-            foodQty.setText(Integer.toString(--quantity));
-        }
+//        public void decrement() {
+//            int quantity = Integer.parseInt(foodQty.getText().toString());
+//            menuItems.get()
+//            foodQty.setText(Integer.toString(--quantity));
+//        }
+//
+//        public void increment() {
+//            int quantity = Integer.parseInt(foodQty.getText().toString());
+//            foodQty.setText(Integer.toString(++quantity));
+//        }
 
-        public void increment() {
-            int quantity = Integer.parseInt(foodQty.getText().toString());
-            foodQty.setText(Integer.toString(++quantity));
+        @Override
+        public void onClick(View v) {
+
         }
     }
 }

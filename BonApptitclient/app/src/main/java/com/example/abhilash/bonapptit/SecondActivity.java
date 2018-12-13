@@ -51,7 +51,6 @@ public class SecondActivity extends AppCompatActivity {
                 startActivity(newIntent);
             }
         });
-
         dinner_btn = (ImageButton) findViewById(R.id.dinner_button);
         dinner_btn.setOnClickListener(new View.OnClickListener() {
             @Override

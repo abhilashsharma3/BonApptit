@@ -21,20 +21,20 @@
             android:padding="10dip">
 
             <TextView
-                android:id="@+id/etname"
+                android:id="@+id/userName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/foodname"
+                android:id="@+id/finalFoodName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp" />
 
             <TextView
-                android:id="@+id/qty"
+                android:id="@+id/finalFoodQty"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
