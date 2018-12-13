@@ -1,10 +1,13 @@
 package com.example.abhilash.bonapptit;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.Icon;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,48 +16,53 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.RecyclerViewHolder> {
     ArrayList<MenuItem> menuItems;
     Context context;
-    public RecyclerViewAdapter(Context context,ArrayList<MenuItem> menuItems){
-        this.context=context;
-        this.menuItems=menuItems;
+    Bundle bundle=new Bundle();
+
+    public RecyclerViewAdapter(Context context, ArrayList<MenuItem> menuItems,Bundle bundle) {
+        this.context = context;
+        this.bundle=bundle;
+        this.menuItems = menuItems;
     }
 
     @NonNull
     @Override
-    public RecyclerViewAdapter.RecyclerViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType){
-       Context context=parent.getContext();
-        LayoutInflater layoutInflater=LayoutInflater.from(context);
-        boolean atp=false;
-        View view=layoutInflater.inflate(R.layout.activity_three,parent,atp);
-        RecyclerViewHolder recyclerViewHolder=new RecyclerViewHolder(view);
+    public RecyclerViewAdapter.RecyclerViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        Context context = parent.getContext();
+        LayoutInflater layoutInflater = LayoutInflater.from(context);
+        boolean atp = false;
+        View view = layoutInflater.inflate(R.layout.activity_three, parent, atp);
+        RecyclerViewHolder recyclerViewHolder = new RecyclerViewHolder(view);
         return recyclerViewHolder;
     }
 
     @Override
     public void onBindViewHolder(@NonNull final RecyclerViewHolder recyclerViewHolder, int i) {
-        final MenuItem menuItem=menuItems.get(i);
+        final MenuItem menuItem = menuItems.get(i);
         final int[] abc = {menuItem.getQuantity()};
         //Food Quantity
-        String ab=Integer.toString(abc[0]);
-       recyclerViewHolder.foodQty.setText(ab);
+        String ab = Integer.toString(abc[0]);
+        recyclerViewHolder.foodQty.setText(ab);
 
         recyclerViewHolder.foodName.setText(menuItem.getName());
         recyclerViewHolder.foodDesc.setText(menuItem.getDesc());
-     //   final float foodPrice={menuItem.getPrice()};
+
         recyclerViewHolder.foodPrice.setText(Float.toString(menuItem.getPrice()));
-       // Drawable drawable=new D
-   //     recyclerViewHolder.imageView.setImageDrawable();
+        // Drawable drawable=new D
+        //     recyclerViewHolder.imageView.setImageDrawable();
         recyclerViewHolder.incButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 ++abc[0];
                 menuItem.setQuantity(abc[0]);
-                String ab=Integer.toString(menuItem.getQuantity());
+                String ab = Integer.toString(menuItem.getQuantity());
                 recyclerViewHolder.foodQty.setText(ab);
                 notifyDataSetChanged();
             }
@@ -62,10 +70,10 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         recyclerViewHolder.decButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(abc[0]!=0){
+                if (abc[0] != 0) {
                     --abc[0];
                     menuItem.setQuantity(abc[0]);
-                    String ab=Integer.toString(menuItem.getQuantity());
+                    String ab = Integer.toString(menuItem.getQuantity());
                     recyclerViewHolder.foodQty.setText(ab);
                     notifyDataSetChanged();
                     notifyDataSetChanged();
@@ -75,7 +83,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     }
 
     @Override
-    public int getItemCount(){
+    public int getItemCount() {
         return menuItems.size();
     }
 
@@ -96,6 +104,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             imageView=view.findViewById(R.id.imageView);
             foodName=view.findViewById(R.id.foodname);
             foodPrice=view.findViewById(R.id.foodPrice);
+            submit=view.findViewById(R.id.co_button);
             foodDesc= view.findViewById(R.id.fooddesc);
             foodQty=view.findViewById(R.id.foodQty);
             incButton=view.findViewById(R.id.increment_button);

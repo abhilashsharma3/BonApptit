@@ -1,11 +1,14 @@
 package com.example.abhilash.bonapptit;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -20,52 +23,88 @@ public class ThirdActivity extends AppCompatActivity implements View.OnClickList
     RecyclerView recyclerView;
     RecyclerViewAdapter recyclerViewAdapter;
     ArrayList<MenuItem> menuItems=new ArrayList<>();
+    Bundle bundle=new Bundle();
     int menutype;
-    Button orderBtn;
+    FloatingActionButton orderBtn;
 
     @Override
     protected void onCreate(Bundle savedInstance) {
         super.onCreate(savedInstance);
-        final Bundle bundle=getIntent().getBundleExtra("bundle");
+        bundle=getIntent().getBundleExtra("bundle");
         menutype=bundle.getInt("menuType");
         setContentView(R.layout.recycler);
         defineMenu();
         recyclerView=findViewById(R.id.recyclerview);
-        recyclerViewAdapter=new RecyclerViewAdapter(this,menuItems);
+        recyclerViewAdapter=new RecyclerViewAdapter(this,menuItems,bundle);
         Log.d("Menu items size"," Size = "+menuItems.size());
         recyclerView.setAdapter(recyclerViewAdapter);
         recyclerView.setLayoutManager( new LinearLayoutManager(this));
        // recyclerViewAdapter.menuItems.addAll(menuItems);
       //  recyclerViewAdapter.notifyDataSetChanged();
-        orderBtn = findViewById(R.id.co_button);
+//        orderBtn=findViewById(R.id.co_button);
+//        orderBtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                String jsonString = "{\"Order\": [\"";
+//                float price = 0.00f;
+//                for(int i = 0; i < menuItems.size(); i++) {
+//                    if (menuItems.get(i).getQuantity() != 0) {
+//                        price += menuItems.get(i).getPrice() * menuItems.get(i).getQuantity();
+//                        if (i != menuItems.size() - 1) {
+//                            jsonString += menuItems.get(i).getQuantity() + " " + menuItems.get(i).getName() + "\", \"";
+//                        } else {
+//                            jsonString += menuItems.get(i).getQuantity() + " " + menuItems.get(i).getName() + "\"]";
+//                        }
+//                    }
+//                }
+//                if(menuItems.get(menuItems.size() - 1).getQuantity() == 0) {
+//                    jsonString = jsonString.substring(0, jsonString.length() - 4) + "]";
+//                }
+//                jsonString += ", \"Price\": \"" + price + "\"}";
+//                Log.d(null, "jsonString: " + jsonString);
+//                bundle.putString("jsonString",jsonString);
+//                bundle.putString("Price",Float.toString(price));
+//                Intent newIntent = new Intent(ThirdActivity.this, FourthActivity.class);
+//                startActivity(newIntent);
+//            }
+//        });
 
-        orderBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String jsonString = "{\"Order\": [\"";
-                float price = 0.00f;
-                for(int i = 0; i < menuItems.size(); i++) {
-                    if (menuItems.get(i).getQuantity() != 0) {
-                        price += menuItems.get(i).getPrice() * menuItems.get(i).getQuantity();
-                        if (i != menuItems.size() - 1) {
-                            jsonString += menuItems.get(i).getQuantity() + " " + menuItems.get(i).getName() + "\", \"";
-                        } else {
-                            jsonString += menuItems.get(i).getQuantity() + " " + menuItems.get(i).getName() + "\"]";
-                        }
+    }
+    @SuppressLint("ResourceType")
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.submit_menu, menu);
+        return true;
+    }
+    @Override
+    public boolean onOptionsItemSelected(android.view.MenuItem item) {
+        int menuclicked=item.getItemId();
+        if (menuclicked==R.id.co_button){
+            String jsonString = "{\"Order\": [\"";
+            float price = 0.00f;
+            for(int i = 0; i < menuItems.size(); i++) {
+                if (menuItems.get(i).getQuantity() != 0) {
+                    price += menuItems.get(i).getPrice() * menuItems.get(i).getQuantity();
+                    if (i != menuItems.size() - 1) {
+                        jsonString += menuItems.get(i).getQuantity() + " " + menuItems.get(i).getName() + "\", \"";
+                    } else {
+                        jsonString += menuItems.get(i).getQuantity() + " " + menuItems.get(i).getName() + "\"]";
                     }
                 }
-                if(menuItems.get(menuItems.size() - 1).getQuantity() == 0) {
-                    jsonString = jsonString.substring(0, jsonString.length() - 4) + "]";
-                }
-                jsonString += ", \"Price\": \"" + price + "\"}";
-                Log.d(null, "jsonString: " + jsonString);
-                bundle.putString("jsonString",jsonString);
-                bundle.putString("Price",Float.toString(price));
-                Intent newIntent = new Intent(ThirdActivity.this, FourthActivity.class);
-                startActivity(newIntent);
             }
-        });
+            if(menuItems.get(menuItems.size() - 1).getQuantity() == 0) {
+                jsonString = jsonString.substring(0, jsonString.length() - 4) + "]";
+            }
+            jsonString += ", \"Price\": \"" + price + "\"}";
+            Log.d(null, "jsonString: " + jsonString);
 
+            Intent newIntent = new Intent(ThirdActivity.this, FourthActivity.class);
+            bundle.putString("jsonString",jsonString);
+            bundle.putString("Price",Float.toString(price));
+            newIntent.putExtra("bundle",bundle);
+            startActivity(newIntent);
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     private void defineMenu() {
@@ -163,5 +202,6 @@ public class ThirdActivity extends AppCompatActivity implements View.OnClickList
         if(click==R.id.co_button){
 
         }
+        }
     }
-}
+
