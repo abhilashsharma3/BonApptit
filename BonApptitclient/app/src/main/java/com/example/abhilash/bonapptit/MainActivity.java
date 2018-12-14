@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -47,6 +48,8 @@ public class MainActivity extends AppCompatActivity {
         customers = new Customer(name, tableNo);
         if ((!name.isEmpty()) && (!tableNo.isEmpty())) {
             mainActivity = true;
+        }else{
+            Toast.makeText(getApplicationContext(),"Enter Name and Table Number",Toast.LENGTH_SHORT).show();
         }
     }
 
