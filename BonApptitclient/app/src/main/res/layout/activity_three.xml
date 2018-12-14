@@ -13,7 +13,7 @@
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/relativeLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="245dp"
         android:layout_margin="5dp"
         android:orientation="vertical">
 
@@ -52,21 +52,21 @@
 
 
         <!--<EditText-->
-            <!--android:id="@+id/foodqty"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_below="@+id/fooddesc"-->
-            <!--android:layout_margin="3dp"-->
-            <!--android:textSize="12sp"-->
-            <!--android:textStyle="bold"-->
-            <!--/>-->
+        <!--android:id="@+id/foodqty"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_below="@+id/fooddesc"-->
+        <!--android:layout_margin="3dp"-->
+        <!--android:textSize="12sp"-->
+        <!--android:textStyle="bold"-->
+        <!--/>-->
 
         <TextView
             android:id="@+id/foodPrice"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp"
             android:layout_below="@+id/fooddesc"
+            android:layout_margin="5dp"
             android:textColor="#FF565656"
             android:textSize="17sp"
             android:textStyle="bold" />
@@ -75,10 +75,11 @@
             android:id="@+id/increment_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/fooddesc"
             android:layout_alignParentEnd="true"
-            android:layout_marginTop="30dp"
+            android:layout_below="@+id/fooddesc"
             android:layout_marginEnd="0dp"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/button_background"
             android:text="+"
             android:textSize="32sp" />
 
@@ -98,10 +99,11 @@
             android:id="@+id/decrement_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/fooddesc"
             android:layout_alignParentStart="true"
+            android:layout_below="@+id/fooddesc"
             android:layout_marginStart="4dp"
             android:layout_marginTop="30dp"
+            android:background="@drawable/button_background"
             android:text="-"
             android:textSize="32sp" />
 
