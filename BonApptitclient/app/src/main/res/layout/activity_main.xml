@@ -91,6 +91,7 @@
                 android:gravity="center_horizontal|center"
                 android:outlineAmbientShadowColor="?android:attr/colorForeground"
                 android:padding="5dp"
+                android:background="@drawable/button_background"
                 android:text="@string/createorder"
                 tools:layout_editor_absoluteX="10dp"
                 tools:layout_editor_absoluteY="461dp" />
