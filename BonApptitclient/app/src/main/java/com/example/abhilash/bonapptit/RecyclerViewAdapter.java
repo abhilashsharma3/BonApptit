@@ -2,6 +2,7 @@ package com.example.abhilash.bonapptit;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.Icon;
 import android.os.Bundle;
@@ -48,6 +49,11 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         final MenuItem menuItem = menuItems.get(i);
         final int[] abc = {menuItem.getQuantity()};
         //Food Quantity
+
+        Resources resources = context.getResources();
+        int drawId = resources.getIdentifier(menuItem.getImg(), "drawable", context.getPackageName());
+        recyclerViewHolder.imageView.setImageResource(drawId);
+
         String ab = Integer.toString(abc[0]);
         recyclerViewHolder.foodQty.setText(ab);
 
