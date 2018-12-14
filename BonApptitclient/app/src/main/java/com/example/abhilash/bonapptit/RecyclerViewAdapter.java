@@ -53,7 +53,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         Resources resources = context.getResources();
         int drawId = resources.getIdentifier(menuItem.getImg(), "drawable", context.getPackageName());
         recyclerViewHolder.imageView.setImageResource(drawId);
-
+        Log.d("DrawId"," Id = "+drawId);
         String ab = Integer.toString(abc[0]);
         recyclerViewHolder.foodQty.setText(ab);
 

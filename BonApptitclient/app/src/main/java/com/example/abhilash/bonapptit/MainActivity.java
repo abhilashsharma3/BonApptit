@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
         EditText editText = findViewById(R.id.etname);
         EditText editText1 = findViewById(R.id.ettnum);
         name=editText.getText().toString();
-        tableNo=editText.getText().toString();
+        tableNo=editText1.getText().toString();
         Log.d("String value n","Value = "+name);
         customers = new Customer(name, tableNo);
         if ((!name.isEmpty()) && (!tableNo.isEmpty())) {
