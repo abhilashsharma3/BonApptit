@@ -96,8 +96,7 @@ public class ThirdActivity extends AppCompatActivity implements View.OnClickList
                 jsonString = jsonString.substring(0, jsonString.length() - 4) + "]";
             }
             jsonString += ", \"Price\": \"" + price + "\"}";
-            Log.d(null, "jsonString: " + jsonString);
-
+            Log.d("Json String", "jsonString: " + jsonString);
             Intent newIntent = new Intent(ThirdActivity.this, FourthActivity.class);
             bundle.putString("jsonString",jsonString);
             bundle.putString("Price",Float.toString(price));

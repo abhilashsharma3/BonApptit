@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -25,29 +26,28 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 getInputandStore();
-              //  if (mainActivity){
+                if (mainActivity){
                     Bundle bundle=new Bundle();
                     bundle.putString("name",name);
                     bundle.putString("tableNo",tableNo);
                     Intent intent=new Intent(MainActivity.this,SecondActivity.class);
                     intent.putExtra("bundle", bundle);
                     startActivity(intent);
-
-              //  }
+               }
             }
         } );
-
-
     }
 
     public void getInputandStore() {
-        this.name = findViewById(R.id.etname).toString();
-        String n = findViewById(R.id.ettnum).toString();
-        Log.d("String value n","Value = "+n);
+        EditText editText = findViewById(R.id.etname);
+        EditText editText1 = findViewById(R.id.ettnum);
+        name=editText.getText().toString();
+        tableNo=editText.getText().toString();
+        Log.d("String value n","Value = "+name);
         customers = new Customer(name, tableNo);
-//        if ((!name.isEmpty()) && (!n.isEmpty())) {
-//            mainActivity = true;
-//        }
+        if ((!name.isEmpty()) && (!tableNo.isEmpty())) {
+            mainActivity = true;
+        }
     }
 
 }
